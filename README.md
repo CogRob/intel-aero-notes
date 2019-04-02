@@ -1,3 +1,7 @@
+# Intel aero docker image for Ubuntu
+
+See [intel-aero-ubuntu-docker/README.md](intel-aero-ubuntu-docker/README.md) for instructions.
+
 # Repository for creating a yocto image with ROS installation
 
 This repository was an unsuccessful attempt to build a yocto image with ROS
