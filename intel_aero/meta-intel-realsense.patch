@@ -1,0 +1,13 @@
+diff --git a/recipes-support/librealsense/librealsense_1.12.1.bb b/recipes-support/librealsense/librealsense_1.12.1.bb
+index 8e374df..064ae1b 100644
+--- a/recipes-support/librealsense/librealsense_1.12.1.bb
++++ b/recipes-support/librealsense/librealsense_1.12.1.bb
+@@ -1,7 +1,7 @@
+ require librealsense.inc
+ 
+ SRC_URI = "\
+-	git://github.com/IntelRealSense/librealsense.git;branch=master \
++    git://github.com/IntelRealSense/librealsense.git;nobranch=1 \
+ 	file://0001-Generate-cmake-package-config-files.patch \
+ 	file://0002-Remove-R200-fix-from-udev-rules.patch \
+ "

@@ -1,0 +1,13 @@
+diff --git a/recipes-kernel/linux/linux-yocto/defconfig b/recipes-kernel/linux/linux-yocto/defconfig
+index 426a2c6..607e1f4 100644
+--- a/recipes-kernel/linux/linux-yocto/defconfig
++++ b/recipes-kernel/linux/linux-yocto/defconfig
+@@ -1253,7 +1253,7 @@ CONFIG_VIRTIO_BLK=y
+ # CONFIG_BLK_DEV_HD is not set
+ # CONFIG_BLK_DEV_RBD is not set
+ # CONFIG_BLK_DEV_RSXX is not set
+-# CONFIG_BLK_DEV_NVME is not set
++CONFIG_BLK_DEV_NVME=m
+ 
+ #
+ # Misc devices

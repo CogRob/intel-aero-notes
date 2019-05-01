@@ -1,0 +1,15 @@
+diff --git a/recipes-support/mavlink-router/mavlink-router_1.0.bb b/recipes-support/mavlink-router/mavlink-router_1.0.bb
+index ceb1ece..e18a862 100644
+--- a/recipes-support/mavlink-router/mavlink-router_1.0.bb
++++ b/recipes-support/mavlink-router/mavlink-router_1.0.bb
+@@ -3,8 +3,8 @@ DEPENDS = "python python-future"
+ LICENSE = "Apache-2.0"
+ LIC_FILES_CHKSUM = "file://LICENSE;md5=93888867ace35ffec2c845ea90b2e16b"
+ 
+-SRCREV = "4c4a42c88e6d417abfeb33527e4690673756807a"
+-SRC_URI = "gitsm://git@github.com/01org/mavlink-router.git;protocol=https"
++SRCREV = "9a48607c931001cb850dd416a1c93f99a2772d16"
++SRC_URI = "gitsm://github.com/wecacuee/mavlink-router.git;protocol=https;nobranch=1"
+ SRC_URI += "file://mavlink-routerd.sh"
+ SRC_URI += "file://main.conf"
+ SRC_URI += "file://0001-Set-rx-trigger-on-ttyS1.patch"
