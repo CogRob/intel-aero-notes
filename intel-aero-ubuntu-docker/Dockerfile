@@ -38,6 +38,7 @@ RUN mkdir -p /boot/grub && touch /etc/default/grub && update-grub -y
 RUN pip install pymavlink
 RUN mkdir -p /etc/acpi/
 RUN apt-get -y update && apt-get install -y aero-system
+RUN apt-get -y purge modemmanager
 
 RUN mkdir -p /etc/mavlink-router/config.d
 RUN echo '\n\
@@ -55,14 +56,14 @@ Address = 192.168.1.147\n\
 ## RUN cd /etc/aerofc/px4/ \
 ##     && aerofc-update.sh nuttx-aerofc-v1-default.px4
 ## 
-## RUN cd /tmp \
-##     && apt-get -y install git libusb-1.0-0-dev pkg-config libgtk-3-dev libglfw3-dev cmake \
-##     && git clone -b legacy --single-branch https://github.com/IntelRealSense/librealsense.git \
-##     && cd librealsense \
-##     && mkdir build && cd build \
-##     && cmake ../ -DBUILD_EXAMPLES=true -DBUILD_GRAPHICAL_EXAMPLES=true \
-##     && make \
-##     && make install
+RUN cd /tmp \
+    && apt-get -y install git libusb-1.0-0-dev pkg-config libgtk-3-dev libglfw3-dev cmake \
+    && git clone -b legacy --single-branch https://github.com/IntelRealSense/librealsense.git \
+    && cd librealsense \
+    && mkdir build && cd build \
+    && cmake ../ -DBUILD_EXAMPLES=true -DBUILD_GRAPHICAL_EXAMPLES=true \
+    && make \
+    && make install
 
 
 ### End of Instructions to install Ubuntu 16.04 on intel-aero ###
@@ -80,3 +81,22 @@ daemon-binary = /bin/true\n\
 enable-shm = false\n\
 \n'\
 > /etc/pulse/client.conf
+
+RUN apt-get -y update && \
+	apt-get -y install dmidecode psmisc \
+    python-pip python-opencv python-opencv-apps python-zbar zbar-tools \
+    vim-python-jedi vim-python-jedi vim-nox-py2 \
+    geographiclib-tools \
+    ros-kinetic-realsense-camera \
+    ros-kinetic-mavros \
+    ros-kinetic-mavros-extras
+
+RUN pip install --upgrade pip
+RUN pip install Cython numpy
+RUN pip install pyrealsense
+
+COPY systemctl.py /usr/bin/systemctl
+RUN chmod +x /usr/bin/systemctl
+CMD ["/usr/bin/systemctl", "init", "mavlink-router"]
+
+WORKDIR /data/cogrob/code
