@@ -56,6 +56,14 @@
 
 
 ## Instructions for compiling NVMe kernel module
+   + Follow instructions here:
+   https://github.com/intel-aero/packages
+   - Change patches/defconfig to enable NVME
+   - Change patches-4.4/defconfig to enable NVME
+    - make kernel-source
+    - make kernel-patch
+    - make kernel
+   - Look for resultant files in aero-kernel/*.deb
    + Download kernel source
    
        $ wget https://mirrors.edge.kernel.org/pub/linux/kernel/v4.x/linux-4.4.76.tar.gz

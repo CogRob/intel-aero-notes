@@ -37,13 +37,15 @@ RUN apt-get update \
     x11-apps \
     net-tools \
     iputils-ping \
-    git
+    git \
+    libgtk-3-dev 
 
 RUN apt-get update \
  && apt-get install -y \
    ros-kinetic-desktop-full \
    ros-kinetic-rtabmap-ros \
    ros-kinetic-realsense-camera
+   usbutils
 
 RUN pip3 install --upgrade pip
 
