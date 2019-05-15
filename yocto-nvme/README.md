@@ -7,6 +7,8 @@ Copy the `nvme` directory to
 /lib/modules/4.4.113-yocto-standard/kernel/drivers
 ```
 
+Then run `depmod`
+
 
 ## Where does it come from
 
