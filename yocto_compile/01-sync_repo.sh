@@ -17,7 +17,7 @@ docker run --rm --volume $CURRENT_SCRIPT_PATH/intel_aero:/intel_aero --workdir /
   repo init -u https://github.com/intel-aero/intel-aero-manifest.git -m v1.6.2.xml -b master
 
 docker run --rm --volume $CURRENT_SCRIPT_PATH/intel_aero:/intel_aero --workdir /intel_aero cogrob_yocto_compile:local \
-  repo sync -j4
-
-docker run --rm --volume $CURRENT_SCRIPT_PATH/intel_aero:/intel_aero --workdir /intel_aero cogrob_yocto_compile:local \
   chown -R `id -ru`:`id -rg` /intel_aero
+
+docker run --rm --volume $CURRENT_SCRIPT_PATH/intel_aero:/intel_aero --workdir /intel_aero --user=`id -ru`:`id -rg` cogrob_yocto_compile:local \
+  repo sync -j4
