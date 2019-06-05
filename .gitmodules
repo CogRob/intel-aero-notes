@@ -1,0 +1,3 @@
+[submodule "intel-aero-control-station"]
+	path = intel-aero-control-station
+	url = git@github.com:wecacuee/intel-aero-control-station.git
