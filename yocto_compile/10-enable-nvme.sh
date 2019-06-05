@@ -10,8 +10,4 @@ while [ -h "$CURRENT_SCRIPT" ]; do # resolve $CURRENT_SCRIPT until the file is n
 done
 CURRENT_SCRIPT_PATH="$( cd -P "$( dirname "$CURRENT_SCRIPT" )" && pwd )"
 
-cd $CURRENT_SCRIPT_PATH/intel_aero/meta-intel-aero/recipes-support/librealsense
-rm -f librealsense_1.12.1.bbappend librealsense.inc librealsense_1.12.0.bb
-wget https://raw.githubusercontent.com/IntelRealSense/meta-intel-librealsense/master/recipes-support/librealsense/librealsense.inc
-wget https://raw.githubusercontent.com/IntelRealSense/meta-intel-librealsense/master/recipes-support/librealsense/librealsense_1.12.0.bb
-sed -i "s/branch=master/branch=legacy/g" librealsense_1.12.0.bb
+sed -i "s/^.*CONFIG_BLK_DEV_NVME.*$/CONFIG_BLK_DEV_NVME=y/g" $CURRENT_SCRIPT_PATH/intel_aero/meta-intel-aero-base/recipes-kernel/linux/linux-yocto/defconfig
