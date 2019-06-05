@@ -14,7 +14,7 @@ cd $CURRENT_SCRIPT_PATH/intel_aero
 
 rm -rf meta-intel-realsense-v2
 git clone https://github.com/IntelRealSense/meta-intel-realsense.git meta-intel-realsense-v2
-grep "meta-intel-realsense-v2" poky/build/conf/bblayers.conf || echo 'BBLAYERS += "/intel_aero/poky/../meta-intel-realsense-v2"' >> poky/build/conf/bblayers.conf
+grep "meta-intel-realsense-v2" poky/build/conf/bblayers.conf || echo 'BBLAYERS += "/home/docker_user/intel_aero/poky/../meta-intel-realsense-v2"' >> poky/build/conf/bblayers.conf
 
 echo 'require include/intel-librealsense.inc' > poky/build/conf/auto.conf
 echo 'CORE_IMAGE_EXTRA_INSTALL += "librealsense2 librealsense2-tools"' >> poky/build/conf/auto.conf
