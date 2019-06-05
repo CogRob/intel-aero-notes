@@ -13,11 +13,8 @@ CURRENT_SCRIPT_PATH="$( cd -P "$( dirname "$CURRENT_SCRIPT" )" && pwd )"
 rm -rf $CURRENT_SCRIPT_PATH/intel_aero
 mkdir -p $CURRENT_SCRIPT_PATH/intel_aero
 
-docker run --rm --volume $CURRENT_SCRIPT_PATH/intel_aero:/intel_aero --workdir /intel_aero cogrob_yocto_compile:local \
+docker run --rm --volume $CURRENT_SCRIPT_PATH/intel_aero:/home/docker_user/intel_aero --workdir /home/docker_user/intel_aero cogrob_yocto_compile:$USER \
   repo init -u https://github.com/intel-aero/intel-aero-manifest.git -m v1.6.2.xml -b master
 
-docker run --rm --volume $CURRENT_SCRIPT_PATH/intel_aero:/intel_aero --workdir /intel_aero cogrob_yocto_compile:local \
-  chown -R `id -ru`:`id -rg` /intel_aero
-
-docker run --rm --volume $CURRENT_SCRIPT_PATH/intel_aero:/intel_aero --workdir /intel_aero --user=`id -ru`:`id -rg` cogrob_yocto_compile:local \
+docker run --rm --volume $CURRENT_SCRIPT_PATH/intel_aero:/home/docker_user/intel_aero --workdir /home/docker_user/intel_aero cogrob_yocto_compile:$USER \
   repo sync -j4

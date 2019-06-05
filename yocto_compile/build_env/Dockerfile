@@ -1,5 +1,8 @@
 FROM ubuntu:xenial
 
+ARG USER_UID=999
+ARG USER_GID=999
+
 RUN \
   apt-get update && \
   DEBIAN_FRONTEND=noninteractive apt-get install --yes \
@@ -17,3 +20,9 @@ RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
     dpkg-reconfigure --frontend=noninteractive locales && \
     update-locale LANG=en_US.UTF-8
 ENV LANG en_US.UTF-8
+
+RUN groupadd -g ${USER_GID} docker_group && \
+    useradd -r -u ${USER_UID} -g docker_group docker_user
+RUN mkdir -p /home/docker_user && chmod 777 /home/docker_user
+
+USER docker_user:docker_group

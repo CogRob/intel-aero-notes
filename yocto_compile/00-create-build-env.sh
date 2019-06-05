@@ -10,4 +10,4 @@ while [ -h "$CURRENT_SCRIPT" ]; do # resolve $CURRENT_SCRIPT until the file is n
 done
 CURRENT_SCRIPT_PATH="$( cd -P "$( dirname "$CURRENT_SCRIPT" )" && pwd )"
 
-docker build -t cogrob_yocto_compile:local $CURRENT_SCRIPT_PATH/build_env
+docker build -t cogrob_yocto_compile:$USER --build-arg USER_UID=`id -ru` --build-arg USER_GID=`id -rg` $CURRENT_SCRIPT_PATH/build_env

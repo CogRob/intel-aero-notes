@@ -10,8 +10,8 @@ while [ -h "$CURRENT_SCRIPT" ]; do # resolve $CURRENT_SCRIPT until the file is n
 done
 CURRENT_SCRIPT_PATH="$( cd -P "$( dirname "$CURRENT_SCRIPT" )" && pwd )"
 
-docker run --rm --volume $CURRENT_SCRIPT_PATH/intel_aero:/intel_aero --workdir /intel_aero --user=`id -ru`:`id -rg` cogrob_yocto_compile:local bash -c '
-  cd /intel_aero/poky ;
+docker run --rm --volume $CURRENT_SCRIPT_PATH/intel_aero:/home/docker_user/intel_aero --workdir /home/docker_user/intel_aero cogrob_yocto_compile:$USER bash -c '
+  cd poky ;
   export TEMPLATECONF=../meta-intel-aero/conf/ ;
-  source oe-init-build-env ;
+  source oe-init-build-env
 '
