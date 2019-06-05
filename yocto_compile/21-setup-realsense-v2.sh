@@ -13,9 +13,9 @@ CURRENT_SCRIPT_PATH="$( cd -P "$( dirname "$CURRENT_SCRIPT" )" && pwd )"
 cd $CURRENT_SCRIPT_PATH/intel_aero
 
 git clone https://github.com/IntelRealSense/meta-intel-realsense.git meta-intel-realsense-v2
-echo 'BBLAYERS += "/intel_aero/poky/../meta-intel-realsense-v2"' >> intel_aero/poky/build/conf/bblayers.conf
+echo 'BBLAYERS += "/intel_aero/poky/../meta-intel-realsense-v2"' >> poky/build/conf/bblayers.conf
 
-echo 'require include/intel-librealsense.inc' > intel_aero/poky/build/conf/auto.conf
-echo 'CORE_IMAGE_EXTRA_INSTALL += "librealsense2 librealsense2-tools"' >> intel_aero/poky/build/conf/auto.conf
-echo 'CORE_IMAGE_EXTRA_INSTALL += "librealsense2-debug-tools"' >> intel_aero/poky/build/conf/auto.conf
-echo 'CORE_IMAGE_EXTRA_INSTALL += "librealsense2-examples"' >> intel_aero/poky/build/conf/auto.conf
+echo 'require include/intel-librealsense.inc' > poky/build/conf/auto.conf
+echo 'CORE_IMAGE_EXTRA_INSTALL += "librealsense2 librealsense2-tools"' >> poky/build/conf/auto.conf
+echo 'CORE_IMAGE_EXTRA_INSTALL += "librealsense2-debug-tools"' >> poky/build/conf/auto.conf
+echo 'CORE_IMAGE_EXTRA_INSTALL += "librealsense2-examples"' >> poky/build/conf/auto.conf
