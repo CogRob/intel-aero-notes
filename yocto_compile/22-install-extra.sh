@@ -11,4 +11,4 @@ done
 CURRENT_SCRIPT_PATH="$( cd -P "$( dirname "$CURRENT_SCRIPT" )" && pwd )"
 
 cd $CURRENT_SCRIPT_PATH/intel_aero
-echo 'CORE_IMAGE_EXTRA_INSTALL += "openvpn"' >> poky/build/conf/auto.conf
+echo 'CORE_IMAGE_EXTRA_INSTALL += "openvpn vim zsh"' >> poky/build/conf/auto.conf
