@@ -14,7 +14,7 @@ CURRENT_SCRIPT_PATH="$( cd -P "$( dirname "$CURRENT_SCRIPT" )" && pwd )"
 
 cd $CURRENT_SCRIPT_PATH
 rm -rf PX4_Firmware
-git clone -b v1.9.0-rc1 https://github.com/PX4/Firmware.git PX4_Firmware
+git clone -b v1.9.0 https://github.com/PX4/Firmware.git PX4_Firmware
 sed -i "s/_min_distance(0.30f)/_min_distance(0.10f)/g" PX4_Firmware/src/drivers/distance_sensor/tfmini/tfmini.cpp
 sed -i "s/_min_distance = 0.3f/_min_distance = 0.1f/g" PX4_Firmware/src/drivers/distance_sensor/tfmini/tfmini.cpp
 ./PX4_Firmware/Tools/docker_run.sh 'make intel_aerofc-v1_default'
