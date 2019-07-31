@@ -1,0 +1,12 @@
+diff --git a/meta/conf/bitbake.conf b/meta/conf/bitbake.conf
+index 6ebe817..63fe3f8 100644
+--- a/meta/conf/bitbake.conf
++++ b/meta/conf/bitbake.conf
+@@ -299,6 +299,7 @@ SECTION_${PN}-doc = "doc"
+ FILES_SOLIBSDEV ?= "${base_libdir}/lib*${SOLIBSDEV} ${libdir}/lib*${SOLIBSDEV}"
+ FILES_${PN}-dev = "${includedir} ${FILES_SOLIBSDEV} ${libdir}/*.la \
+                 ${libdir}/*.o ${libdir}/pkgconfig ${datadir}/pkgconfig \
++                ${libdir}/cmake \
+                 ${datadir}/aclocal ${base_libdir}/*.o \
+                 ${libdir}/${BPN}/*.la ${base_libdir}/*.la"
+ SECTION_${PN}-dev = "devel"

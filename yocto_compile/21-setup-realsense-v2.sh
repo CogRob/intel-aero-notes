@@ -22,3 +22,4 @@ echo 'CORE_IMAGE_EXTRA_INSTALL += "librealsense2-debug-tools"' >> poky/build/con
 echo 'CORE_IMAGE_EXTRA_INSTALL += "librealsense2-examples"' >> poky/build/conf/auto.conf
 
 echo 'FILES_${PN} += "/usr/lib/cmake/*"' >> meta-intel-realsense-v2/recipes-support/librealsense/librealsense2.inc
+patch -d "$CURRENT_SCRIPT_PATH/intel_aero/poky" -p1 -fu < "$CURRENT_SCRIPT_PATH/poky-yocto-ship-cmake-files.patch"
